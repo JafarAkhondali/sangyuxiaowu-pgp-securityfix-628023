@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Demo of ACE Editor</title>
+        <!--导入js库-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+    </head>
+    
+    <body>
+        <!--代码输入框（注意请务必设置高度，否则无法显示）-->
+        <pre id="code" class="ace_editor" style="min-height:400px"><textarea class="ace_text-input">
+            using UnityEngine;
+            using System.Collections;
+            using System.IO;
+            using System;
+            using System.Diagnostics;
+            using System.Collections.Generic;
+            using System.Runtime.InteropServices;
+            using System.Threading;
+            using System.Linq;
+            
+            public class UnityREC : MonoBehaviour
+            {
+                Texture2D tex;
+                int width;
+                int height;
+                Queue<byte[]> imageBytes = new Queue<byte[]>();
+                bool isREC = false;
+            //	int index = 0;
+            //	int i = 0;
+                public string text;
+                byte[] imagebytes;
+                Color32[] imagebytesY;
+                Color32[] imagebytesUV;
+                int j = 0;
+                int pixmnt = 0;
+                int btmnt = 0;
+                int vstpt = 0;
+                int w = 0;
+                int r,g,b;
+                int Y,U,V;
+                AndroidJavaClass nimInterface;
+                bool isCalledFirstTime=true;
+                int dtwidth,dtheight;
+                Color32 c;
+                int smpmnt;
+                private RenderTexture rt;
+                byte q;
+                string str;
+                private static int COLORSIZE = 256;
+                private struct RGBA
+                {
+                    int r;
+                    int g;
+                    int b;
+                    int a;
+                }
+            
+                public static byte[] Y_R,Y_G,Y_B,U_R,U_G,U_B,V_R,V_G,V_B;
+            
+            
+                // Use this for initialization
+                void Start()
+                {
+                    width = Screen.width;
+                    height = Screen.height;
+                    pixmnt = width * height;
+                    smpmnt = pixmnt / 4;
+                    btmnt = pixmnt * 3 / 2;
+                    vstpt = pixmnt * 5 / 4;
+                    imagebytes = new byte[btmnt];
+                    Camera.main.targetTexture = rt;
+                    rt = new RenderTexture(width, height, 2, RenderTextureFormat.ARGB32, RenderTextureReadWrite.Default);
+                    tex = new Texture2D(rt.width, rt.height, TextureFormat.RGB24,true);
+                    Camera.main.pixelRect = new Rect(0, 0, Screen.width, Screen.height);
+                    Camera.main.targetTexture = rt;
+                    //StartCoroutine(StartREC());
+                    Y_R = new byte[COLORSIZE];
+                    Y_G = new byte[COLORSIZE];
+                    Y_B = new byte[COLORSIZE];
+                    U_R = new byte[COLORSIZE];
+                    U_G = new byte[COLORSIZE];
+                    U_B = new byte[COLORSIZE];
+                    V_R = new byte[COLORSIZE];
+                    V_G = new byte[COLORSIZE];
+                    V_B = new byte[COLORSIZE];
+                    table_init ();
+            
+                }
+            
+                // Update is called once per frame
+                void Update()
+                {
+                    RenderTexture.active = rt;
+            
+                //	UnityEngine.Debug.Log (i);
+                    if (isREC) {
+            
+                    
+                        StartCoroutine (StartREC ());
+            
+                            //StartRec();
+                        }
+                    }
+            
+                float startTime = 0;
+                float videoLength = 0;
+            
+                public static void table_init(){
+                    int i;
+                    for (i = 0; i < COLORSIZE; i++) {
+                        Y_R [i] = (byte)((i * 1224) >> 12);
+                        Y_G [i] = (byte)((i * 2404) >> 12);
+                        Y_B [i] = (byte)((i * 469) >> 12);
+                        U_R [i] = (byte)((i * 692) >> 12);
+                        U_G [i] = (byte)((i * 1356) >> 12);
+                        U_B [i] = (byte)(i >> 1);
+                        V_R [i] = (byte)((i * 2048) >> 12);
+                        V_G [i] = (byte)((i * 1731) >> 12);
+                        V_B [i] = (byte)((i * 334) >> 12);
+                    }
+                }
+                public void StartRecording()
+                {
+                    
+                        if (isREC)
+                        {
+                            isREC = false;
+                            videoLength = Time.time - startTime;
+                            //UnityEngine.Debug.LogError("videoLength" + videoLength);
+                            return;
+                        }
+                        else
+                        {
+                            isREC = true;
+                            startTime = Time.time;
+            //				index = 0;
+                            return;
+                        }
+            
+            
+            
+                }
+            
+            
+            
+            
+            
+            //	float fireRate = 0.02F;
+            //	float nextFire = 0.0F;
+                IEnumerator StartREC()
+                {
+                    yield return new WaitForEndOfFrame ();
+                    j = 0;
+                    w = 0;
+            
+                    tex.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0,false);
+                    tex.Apply ();
+            
+                    Camera.main.targetTexture = null;
+                     RenderTexture.active = null;
+                    imagebytesY = tex.GetPixels32 ();
+                //	UnityEngine.Debug.Log ("Length of imagebytesY is " + imagebytesY.GetLength (0));
+                    imagebytesUV = tex.GetPixels32 (1);
+                    //UnityEngine.Debug.Log ("Length of imagebytesUV is " + imagebytesUV.GetLength (0));
+                    for (j = 0; j < pixmnt; j++) {
+                        imagebytes [j] = (byte)(Y_R[imagebytesY[j].r] + Y_G [imagebytesY[j].g] + Y_B [imagebytesY[j].b]);
+                    }
+                    for (w = 0; w < (pixmnt / 4); w++) {
+                        imagebytes [pixmnt + w] = (byte)(U_B [imagebytesUV [w].b] - U_R [imagebytesUV [w].r] - U_G [imagebytesUV [w].g] + 128);
+                        imagebytes [vstpt+w] = (byte)(V_R [imagebytesUV [w].r] - V_G [imagebytesUV [w].g] - V_B [imagebytesUV [w].b] + 128);
+                    }
+            
+                    /*imageBytes.Enqueue (imagebytes);
+                    File.WriteAllBytes (Application.persistentDataPath + "/sdcard/strg/" + index + ".YUV", imageBytes.Dequeue ());
+                    index++;*/
+            //					imagebytes2 [j] = (byte)Y;
+                            
+            //					imagebytes2 [pixmnt + w] = (byte)U;
+            //					imagebytes2 [vstpt + w] = (byte)V;
+            
+            
+            
+                    //tex.Compress(false);//对屏幕缓存进行压缩 
+            
+                    //float t = Time.time;
+                    //Stopwatch sw = new Stopwatch();
+                    //sw.Start();
+                    //UnityEngine.Debug.Log(string.Format("total: {0} ms", Time.time - t));
+            
+                    Loom.RunAsync (() => {
+                        sendBytesOut (imagebytes);
+                    });
+            //		File.WriteAllBytes (Application.persistentDataPath + "/sdcard/strg/" + index + ".YUV", imageBytes.Dequeue ());
+            //		index++;*/
+                    // sw.Stop();
+                    //UnityEngine.Debug.Log(string.Format("total: {0} ms", sw.ElapsedMilliseconds)); 
+            
+                }
+            
+                private void sendBytesOut(byte[] frameData){
+                    if(isCalledFirstTime){
+                        //create class ref
+                        nimInterface = new AndroidJavaClass ("cn.woquxiu.ca1123.unityniminterface.ARSupportStreamCenter");
+                        isCalledFirstTime = false;
+                    }
+                    //send bytes out
+                    object[] param=new object[]{frameData,width,height,-1,15};
+                    nimInterface.CallStatic("sendYUVDataFrame",param);
+                }
+            
+            
+                public void FusionOver(string videoName)
+                {
+                    UnityEngine.Debug.Log("videoName:" + videoName);
+                }
+            
+            
+            }
+        </textarea></pre>
+
+        <script>
+            //初始化对象
+            editor = ace.edit("code");
+            
+            //设置风格和语言（更多风格和语言，请到github上相应目录查看）
+            theme = "clouds"
+            language = "sharp"
+            editor.setTheme("ace/theme/" + theme);
+            editor.session.setMode("ace/mode/" + language);
+            
+            //字体大小
+            editor.setFontSize(18);
+            
+            //设置只读（true时只读，用于展示代码）
+            editor.setReadOnly(false); 
+            
+            //自动换行,设置为off关闭
+            editor.setOption("wrap", "free")
+            
+            //启用提示菜单
+            ace.require("ace/ext/language_tools");
+            editor.setOptions({
+                    enableBasicAutocompletion: true,
+                    enableSnippets: true,
+                    enableLiveAutocompletion: true
+                });
+        </script>
+
+    </body>
+</html>

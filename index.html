@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>PGP记忆片段</title>
+<meta name="keywords" content="便签,小纸条,snippet,代码,代码片段,code,记忆,记忆片段,知识库,个人收集,Code Snippet" />
+<meta name="description" content="" />
+<link href="css/metro.min.css" rel="stylesheet">
+<link href="css/metro-icons.min.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
+<style>
+
+</style>
+</head>
+<body>
+
+    <section class="top-menu">
+        <div class="listview list-type-listing">
+            <div class="list">
+                <img src="images/add.png" class="list-icon">
+                <span class="list-title">新建</span>
+            </div>
+            <div class="list">
+                <img src="images/copy.png" class="list-icon">
+                <span class="list-title">复制</span>
+            </div>
+            <div class="list">
+                <img src="images/del.png" class="list-icon">
+                <span class="list-title">删除</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="main">
+        <div class="main-box">
+            <div class="s1">
+                    <div class="listview list-s1" data-role="listview">
+                            <div class="list-group">
+                                <span class="list-group-toggle">记忆库</span>
+                                <div class="list-group-content">
+                                    <div class="list"><img src="images/all.png" class="list-icon">* 所有记忆</div>
+                                    <div class="list"><img src="images/fav.png" class="list-icon">* 所有收藏</div>
+                                </div>
+                            </div>
+
+                            <div class="list-group">
+                                <span class="list-group-toggle">高亮类别</span>
+                                <div class="list-group-content">
+                                    <div class="list"><img src="images/code.png" class="list-icon">C#</div>
+                                    <div class="list"><img src="images/code.png" class="list-icon">C++</div>
+                                </div>
+                            </div>
+
+                            <div class="list-group">
+                                <span class="list-group-toggle">标签</span>
+                                <div class="list-group-content">
+                                    <div class="list"><img src="images/lab.png" class="list-icon">api</div>
+                                    <div class="list"><img src="images/lab.png" class="list-icon">web</div>
+                                </div>
+                            </div>
+                    </div>
+            </div>
+            <div class="lab1" id='lab1'></div>
+            <div class="s2">
+                    <div class="input-control text" style="    width: 100%;
+                    padding: 5px 10px;
+                    background: #ebebeb;
+                    margin: 0;">
+                        <input type="text" placeholder="搜索所有...">
+                    </div>
+                    <div class="listview-outlook" data-role="listview">
+                        <div class="list">
+                            <div class="list-content">
+                                <div class="list-title">什么玩意的代码</div>
+                                <div class="list-subtitle"><span style="color:#999">JavaScript</span><span style="float:right">2017/08/08 16:34</span></div>
+                                <div class="list-remark"><span class="mif-star-empty"></span>&nbsp;<span style="color:#333" class="mif-unlock"></span>&nbsp;备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注</div>
+                            </div>
+                        </div>
+                        <div class="list">
+                            <div class="list-content">
+                                <div class="list-title">什么玩意的代码</div>
+                                <div class="list-subtitle"><span style="color:#999">JavaScript</span><span style="float:right">2017/08/08 16:34</span></div>
+                                <div class="list-remark"><span class="mif-star-empty"></span>&nbsp;<span style="color:#333" class="mif-unlock"></span>&nbsp;备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注</div>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+            <div class="lab1" id='lab2'></div>
+            <div class="s3">
+                <div class="cinfo">
+                    <div class="title">
+                            <p>水水水水水水水水</p>
+                            <div class="input-control select sel-ctype">
+                                <select>
+                                    <option value="abap">ABAP</option><option value="abc">ABC</option>
+                                    <option value="actionscript">ActionScript</option><option value="ada">ADA</option>
+                                    <option value="apache_conf">Apache Conf</option><option value="asciidoc">AsciiDoc</option>
+                                    <option value="assembly_x86">Assembly x86</option><option value="autohotkey">AutoHotKey</option>
+                                    <option value="batchfile">BatchFile</option><option value="bro">Bro</option><option value="c_cpp">C and C++</option>
+                                    <option value="c9search">C9Search</option><option value="cirru">Cirru</option><option value="clojure">Clojure</option>
+                                    <option value="cobol">Cobol</option><option value="coffee">CoffeeScript</option><option value="coldfusion">ColdFusion</option>
+                                    <option value="csharp" selected>C#</option><option value="csound_document">Csound Document</option><option value="csound_orchestra">Csound</option>
+                                    <option value="csound_score">Csound Score</option><option value="css">CSS</option><option value="curly">Curly</option><option value="d">D</option>
+                                    <option value="dart">Dart</option><option value="diff">Diff</option><option value="dockerfile">Dockerfile</option>
+                                    <option value="dot">Dot</option><option value="drools">Drools</option><option value="dummy">Dummy</option>
+                                    <option value="dummysyntax">DummySyntax</option><option value="eiffel">Eiffel</option><option value="ejs">EJS</option>
+                                    <option value="elixir">Elixir</option><option value="elm">Elm</option><option value="erlang">Erlang</option><option value="forth">Forth</option>
+                                    <option value="fortran">Fortran</option><option value="ftl">FreeMarker</option><option value="gcode">Gcode</option>
+                                    <option value="gherkin">Gherkin</option><option value="gitignore">Gitignore</option><option value="glsl">Glsl</option>
+                                    <option value="gobstones">Gobstones</option><option value="golang">Go</option><option value="graphqlschema">GraphQLSchema</option>
+                                    <option value="groovy">Groovy</option><option value="haml">HAML</option><option value="handlebars">Handlebars</option>
+                                    <option value="haskell">Haskell</option><option value="haskell_cabal">Haskell Cabal</option><option value="haxe">haXe</option>
+                                    <option value="hjson">Hjson</option><option value="html">HTML</option><option value="html_elixir">HTML (Elixir)</option>
+                                    <option value="html_ruby">HTML (Ruby)</option><option value="ini">INI</option><option value="io">Io</option><option value="jack">Jack</option>
+                                    <option value="jade">Jade</option><option value="java">Java</option><option value="javascript">JavaScript</option>
+                                    <option value="json">JSON</option><option value="jsoniq">JSONiq</option><option value="jsp">JSP</option><option value="jssm">JSSM</option>
+                                    <option value="jsx">JSX</option><option value="julia">Julia</option><option value="kotlin">Kotlin</option><option value="latex">LaTeX</option>
+                                    <option value="less">LESS</option><option value="liquid">Liquid</option><option value="lisp">Lisp</option>
+                                    <option value="livescript">LiveScript</option><option value="logiql">LogiQL</option><option value="lsl">LSL</option>
+                                    <option value="lua">Lua</option><option value="luapage">LuaPage</option><option value="lucene">Lucene</option>
+                                    <option value="makefile">Makefile</option><option value="markdown">Markdown</option><option value="mask">Mask</option>
+                                    <option value="matlab">MATLAB</option><option value="maze">Maze</option><option value="mel">MEL</option>
+                                    <option value="mushcode">MUSHCode</option><option value="mysql">MySQL</option><option value="nix">Nix</option>
+                                    <option value="nsis">NSIS</option><option value="objectivec">Objective-C</option><option value="ocaml">OCaml</option>
+                                    <option value="pascal">Pascal</option><option value="perl">Perl</option><option value="pgsql">pgSQL</option>
+                                    <option value="php">PHP</option><option value="pig">Pig</option><option value="powershell">Powershell</option>
+                                    <option value="praat">Praat</option><option value="prolog">Prolog</option><option value="properties">Properties</option>
+                                    <option value="protobuf">Protobuf</option><option value="python">Python</option><option value="r">R</option>
+                                    <option value="razor">Razor</option><option value="rdoc">RDoc</option><option value="red">Red</option>
+                                    <option value="rhtml">RHTML</option><option value="rst">RST</option><option value="ruby">Ruby</option>
+                                    <option value="rust">Rust</option><option value="sass">SASS</option><option value="scad">SCAD</option>
+                                    <option value="scala">Scala</option><option value="scheme">Scheme</option><option value="scss">SCSS</option>
+                                    <option value="sh">SH</option><option value="sjs">SJS</option><option value="smarty">Smarty</option>
+                                    <option value="snippets">snippets</option><option value="soy_template">Soy Template</option>
+                                    <option value="space">Space</option><option value="sql">SQL</option><option value="sqlserver">SQLServer</option>
+                                    <option value="stylus">Stylus</option><option value="svg">SVG</option><option value="swift">Swift</option>
+                                    <option value="tcl">Tcl</option><option value="tex">Tex</option><option value="text">Text</option><option value="textile">Textile</option>
+                                    <option value="toml">Toml</option><option value="tsx">TSX</option><option value="twig">Twig</option>
+                                    <option value="typescript">Typescript</option><option value="vala">Vala</option><option value="vbscript">VBScript</option>
+                                    <option value="velocity">Velocity</option><option value="verilog">Verilog</option><option value="vhdl">VHDL</option>
+                                    <option value="wollok">Wollok</option><option value="xml">XML</option><option value="xquery">XQuery</option>
+                                    <option value="yaml">YAML</option><option value="django">Django</option>
+                                </select>
+                            </div>
+                            <div class="pagination">
+                                <span class="item"><span class="mif-file-empty"></span></span>
+                                <span class="item current"><span class="mif-file-text"></span></span>
+                                <span class="item"><span class="mif-pencil"></span></span>
+                            </div>
+                    </div>
+                </div>
+                <!--代码输入框（注意请务必设置高度，否则无法显示）-->
+                <pre id="code" class="ace_editor" style="height:100%;min-height:400px;"><textarea class="ace_text-input">
+using UnityEngine;
+using System.Collections;
+using System.IO;
+using System;
+using System.Diagnostics;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using System.Threading;
+using System.Linq;
+
+public class UnityREC : MonoBehaviour
+{
+    Texture2D tex;
+    int width;
+    int height;
+    Queue<byte[]> imageBytes = new Queue<byte[]>();
+    bool isREC = false;
+//	int index = 0;
+//	int i = 0;
+    public string text;
+    byte[] imagebytes;
+    Color32[] imagebytesY;
+    Color32[] imagebytesUV;
+    int j = 0;
+    int pixmnt = 0;
+    int btmnt = 0;
+    int vstpt = 0;
+    int w = 0;
+    int r,g,b;
+    int Y,U,V;
+    AndroidJavaClass nimInterface;
+    bool isCalledFirstTime=true;
+    int dtwidth,dtheight;
+    Color32 c;
+    int smpmnt;
+    private RenderTexture rt;
+    byte q;
+    string str;
+    private static int COLORSIZE = 256;
+    private struct RGBA
+    {
+        int r;
+        int g;
+        int b;
+        int a;
+    }
+
+    public static byte[] Y_R,Y_G,Y_B,U_R,U_G,U_B,V_R,V_G,V_B;
+
+
+    // Use this for initialization
+    void Start()
+    {
+        width = Screen.width;
+        height = Screen.height;
+        pixmnt = width * height;
+        smpmnt = pixmnt / 4;
+        btmnt = pixmnt * 3 / 2;
+        vstpt = pixmnt * 5 / 4;
+        imagebytes = new byte[btmnt];
+        Camera.main.targetTexture = rt;
+        rt = new RenderTexture(width, height, 2, RenderTextureFormat.ARGB32, RenderTextureReadWrite.Default);
+        tex = new Texture2D(rt.width, rt.height, TextureFormat.RGB24,true);
+        Camera.main.pixelRect = new Rect(0, 0, Screen.width, Screen.height);
+        Camera.main.targetTexture = rt;
+        //StartCoroutine(StartREC());
+        Y_R = new byte[COLORSIZE];
+        Y_G = new byte[COLORSIZE];
+        Y_B = new byte[COLORSIZE];
+        U_R = new byte[COLORSIZE];
+        U_G = new byte[COLORSIZE];
+        U_B = new byte[COLORSIZE];
+        V_R = new byte[COLORSIZE];
+        V_G = new byte[COLORSIZE];
+        V_B = new byte[COLORSIZE];
+        table_init ();
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        RenderTexture.active = rt;
+
+    //	UnityEngine.Debug.Log (i);
+        if (isREC) {
+
+        
+            StartCoroutine (StartREC ());
+
+                //StartRec();
+            }
+        }
+
+    float startTime = 0;
+    float videoLength = 0;
+
+    public static void table_init(){
+        int i;
+        for (i = 0; i < COLORSIZE; i++) {
+            Y_R [i] = (byte)((i * 1224) >> 12);
+            Y_G [i] = (byte)((i * 2404) >> 12);
+            Y_B [i] = (byte)((i * 469) >> 12);
+            U_R [i] = (byte)((i * 692) >> 12);
+            U_G [i] = (byte)((i * 1356) >> 12);
+            U_B [i] = (byte)(i >> 1);
+            V_R [i] = (byte)((i * 2048) >> 12);
+            V_G [i] = (byte)((i * 1731) >> 12);
+            V_B [i] = (byte)((i * 334) >> 12);
+        }
+    }
+    public void StartRecording()
+    {
+        
+            if (isREC)
+            {
+                isREC = false;
+                videoLength = Time.time - startTime;
+                //UnityEngine.Debug.LogError("videoLength" + videoLength);
+                return;
+            }
+            else
+            {
+                isREC = true;
+                startTime = Time.time;
+//				index = 0;
+                return;
+            }
+
+
+
+    }
+
+
+
+
+
+//	float fireRate = 0.02F;
+//	float nextFire = 0.0F;
+    IEnumerator StartREC()
+    {
+        yield return new WaitForEndOfFrame ();
+        j = 0;
+        w = 0;
+
+        tex.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0,false);
+        tex.Apply ();
+
+        Camera.main.targetTexture = null;
+            RenderTexture.active = null;
+        imagebytesY = tex.GetPixels32 ();
+    //	UnityEngine.Debug.Log ("Length of imagebytesY is " + imagebytesY.GetLength (0));
+        imagebytesUV = tex.GetPixels32 (1);
+        //UnityEngine.Debug.Log ("Length of imagebytesUV is " + imagebytesUV.GetLength (0));
+        for (j = 0; j < pixmnt; j++) {
+            imagebytes [j] = (byte)(Y_R[imagebytesY[j].r] + Y_G [imagebytesY[j].g] + Y_B [imagebytesY[j].b]);
+        }
+        for (w = 0; w < (pixmnt / 4); w++) {
+            imagebytes [pixmnt + w] = (byte)(U_B [imagebytesUV [w].b] - U_R [imagebytesUV [w].r] - U_G [imagebytesUV [w].g] + 128);
+            imagebytes [vstpt+w] = (byte)(V_R [imagebytesUV [w].r] - V_G [imagebytesUV [w].g] - V_B [imagebytesUV [w].b] + 128);
+        }
+
+        /*imageBytes.Enqueue (imagebytes);
+        File.WriteAllBytes (Application.persistentDataPath + "/sdcard/strg/" + index + ".YUV", imageBytes.Dequeue ());
+        index++;*/
+//					imagebytes2 [j] = (byte)Y;
+                
+//					imagebytes2 [pixmnt + w] = (byte)U;
+//					imagebytes2 [vstpt + w] = (byte)V;
+
+
+
+        //tex.Compress(false);//对屏幕缓存进行压缩 
+
+        //float t = Time.time;
+        //Stopwatch sw = new Stopwatch();
+        //sw.Start();
+        //UnityEngine.Debug.Log(string.Format("total: {0} ms", Time.time - t));
+
+        Loom.RunAsync (() => {
+            sendBytesOut (imagebytes);
+        });
+//		File.WriteAllBytes (Application.persistentDataPath + "/sdcard/strg/" + index + ".YUV", imageBytes.Dequeue ());
+//		index++;*/
+        // sw.Stop();
+        //UnityEngine.Debug.Log(string.Format("total: {0} ms", sw.ElapsedMilliseconds)); 
+
+    }
+
+    private void sendBytesOut(byte[] frameData){
+        if(isCalledFirstTime){
+            //create class ref
+            nimInterface = new AndroidJavaClass ("cn.woquxiu.ca1123.unityniminterface.ARSupportStreamCenter");
+            isCalledFirstTime = false;
+        }
+        //send bytes out
+        object[] param=new object[]{frameData,width,height,-1,15};
+        nimInterface.CallStatic("sendYUVDataFrame",param);
+    }
+
+
+    public void FusionOver(string videoName)
+    {
+        UnityEngine.Debug.Log("videoName:" + videoName);
+    }
+
+
+}
+                </textarea></pre>
+            </div>
+        </div>
+    </section>
+
+
+<!--
+    <div id='wrap'>
+	<ul>
+		<li class="li1"></li>
+		<label class="lab1" id='lab1'>1</label>
+		<li class="li2"><a href="http://www.51xuediannao.com">懒人建站</a> http://www.51xuediannao.com 整理</li>
+		<label class="lab2">2</label>
+		<li class="li3"></li>
+	</ul>
+</div>
+
+<div id='test' style="clear:both;"></div>
+-->
+<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="js/metro.min.js"></script>
+<script src="lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/ace/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+<script>
+$(function(){
+	var clickX, leftOffset, inx, nextW2, nextW;
+	var dragging  = false;
+	var doc 	  = document;
+	var labBtn 	  = $(".main-box").find('.lab1');
+	var wrapWidth = $(".main-box").width();
+
+	labBtn.bind('mousedown',function(){
+			dragging   = true;
+			leftOffset = $("#wrap").offset().left;
+			inx 	   = $(this).index('label');
+		}
+	);
+
+	doc.onmousemove = function(e){
+		if (dragging) {
+			labBtn.eq(inx).prev().text( labBtn.eq(inx).prev().width() );
+			labBtn.eq(inx).next().text( labBtn.eq(inx).next().width() );
+			//--------------------------------------------
+			clickX = e.pageX;
+			$("#test").text( '鼠标位置：' + clickX );
+			
+			//判断第几个拖动按钮
+			if( inx == 0 ){
+
+				//第一个拖动按钮左边不出界
+				if(clickX > leftOffset) {
+					labBtn.eq(inx).css('left', clickX - 7 - leftOffset + 'px');//按钮移动
+
+					labBtn.eq(inx).prev().width( clickX-leftOffset + 'px');
+					nextW2 = clickX-leftOffset;
+					labBtn.eq(inx).next().width( wrapWidth - nextW2 - labBtn.eq(inx+1).next().width() + 'px');
+				} else {
+					labBtn.eq(inx).css('left', '0px');
+				}
+
+
+				if(clickX > (labBtn.eq(inx+1).offset().left-5)) {
+					//第一个按钮右边不出界
+					labBtn.eq(inx).css('left', parseFloat(labBtn.eq(inx+1).css('left')) -11 + 'px');
+					//第一个按钮，左右容器不出界
+					labBtn.eq(inx).prev().width( labBtn.eq(inx).offset().left + 6 - leftOffset + 11 + 'px' );
+					labBtn.eq(inx).next().width( '0px' );
+				} 
+
+			} else {
+
+				//第二个拖动按钮左边不出界
+				if( (clickX) > labBtn.eq(inx-1).offset().left + 10 ) {
+					labBtn.eq(inx).css('left', clickX - 7 - leftOffset + 'px'); //按钮移动
+
+					labBtn.eq(inx).prev().width( (clickX-leftOffset-labBtn.eq(inx-1).prev().width()) + 'px');
+					nextW = clickX - leftOffset;
+					labBtn.eq(inx).next().width( wrapWidth - nextW  + 'px');
+				} else {
+					//第二个按钮向左移动不出界
+					labBtn.eq(inx).css('left', parseFloat(labBtn.eq(inx-1).css('left')) +10 + 'px');
+
+					//第二个按钮左右容器，不出界
+					labBtn.eq(inx).prev().width('0px')
+					labBtn.eq(inx).next().width( wrapWidth - labBtn.eq(inx-1).prev().width() );
+				}
+
+				if( clickX >= (leftOffset + wrapWidth) ) {
+					//第二个按钮右边不出界
+					labBtn.eq(inx).css('left', wrapWidth -10 + 'px'); //减去按钮的宽度
+					//第二个按钮左右容器，右边不出界
+					labBtn.eq(inx).prev().width( wrapWidth - labBtn.eq(inx-1).prev().width());
+					labBtn.eq(inx).next().width( '0px' );
+				}
+
+			}
+		}
+	};
+
+	$(doc).mouseup(function(e) {
+	    dragging = false;
+	    e.cancelBubble = true;
+	})
+
+    $("#code").height($(".s3").height());
+})
+</script>
+<script>
+    
+        //初始化对象
+        editor = ace.edit("code");
+        
+        //设置风格和语言（更多风格和语言，请到github上相应目录查看）
+        theme = "clouds"
+        language = "csharp"
+        editor.setTheme("ace/theme/" + theme);
+        editor.session.setMode("ace/mode/" + language);
+        
+        //字体大小
+        editor.setFontSize(15);
+        
+        //设置只读（true时只读，用于展示代码）
+        editor.setReadOnly(false); 
+        
+        //自动换行,设置为off关闭
+        editor.setOption("wrap", "free")
+        
+        //启用提示菜单
+        ace.require("ace/ext/language_tools");
+        editor.setOptions({
+                enableBasicAutocompletion: true,
+                enableSnippets: true,
+                enableLiveAutocompletion: true
+            });
+    </script>
+</body>
+</html>
